@@ -23,7 +23,7 @@ jobs:
           GOOS=linux GOARCH=amd64 go build -o wallet_scanner_linux main.go
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: wallet_scanner_linux
           path: wallet_scanner_linux
