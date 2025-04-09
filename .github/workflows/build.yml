@@ -1,0 +1,29 @@
+name: Build Wallet Scanner
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.20
+
+      - name: Build binary for Linux
+        run: |
+          GOOS=linux GOARCH=amd64 go build -o wallet_scanner_linux main.go
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: wallet_scanner_linux
+          path: wallet_scanner_linux
