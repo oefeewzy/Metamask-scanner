@@ -20,10 +20,4 @@ jobs:
 
       - name: Build binary for Linux
         run: |
-          GOOS=linux GOARCH=amd64 go build -o wallet_scanner_linux main.go
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@latest
-        with:
-          name: wallet_scanner_linux
-          path: wallet_scanner_linux
+          GOOS=linux GOARCH=amd64 go build -o wallet_scanner_linux 
