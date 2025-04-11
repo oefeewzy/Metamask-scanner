@@ -15,6 +15,10 @@ jobs:
 
       - name: Set up Go
         uses: actions/setup-go@v4
+     
+      - name: go tidy
+        run: |
+         go mod tidy
 
       - name: Build binary for Linux
         run: |
